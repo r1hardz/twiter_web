@@ -4,19 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageToTweetsTable extends Migration
+class AddImageColumnToTweets extends Migration
 {
     public function up()
     {
         Schema::table('tweets', function (Blueprint $table) {
-            $table->string('image')->nullable()->after('content'); // Adding the image column
+            $table->string('image')->nullable();
         });
     }
 
     public function down()
     {
         Schema::table('tweets', function (Blueprint $table) {
-            $table->dropColumn('image');
+            if (Schema::hasColumn('tweets', 'image')) {
+                $table->dropColumn('image');
+            }
         });
     }
 }

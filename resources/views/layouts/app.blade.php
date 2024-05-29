@@ -16,6 +16,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('tweets.css') }}" rel="stylesheet">
@@ -31,7 +34,6 @@
                             <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="img-fluid">
                         </div>
                         <ul class="nav flex-column mt-3">
-                                                      
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/tweets') }}">Tweets</a>
                             </li>
@@ -45,6 +47,9 @@
                                     </li>
                                 @endif
                             @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('profile.show') }}">Profile</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

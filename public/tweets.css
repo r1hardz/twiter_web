@@ -65,11 +65,12 @@ body {
 }
 
 main {
-    margin-left: 100px;
-    padding: 20px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Footer styling */
@@ -88,9 +89,21 @@ footer p {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;  /* Include padding in width calculation */
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;  /* Include padding in width calculation */
 }
 
 .border-bottom {
@@ -123,8 +136,8 @@ footer p {
 
 /* Card styling */
 .card {
-    width: 100%;
-    max-width: 500px;
+    width: 150%;  /* Set width to 150% */
+    max-width: 1000px;  /* Set a maximum width as needed */
     background-color: #192734;
     border: none;
     border-radius: 15px;
@@ -133,6 +146,8 @@ footer p {
     margin-bottom: 20px;
     color: #ffffff;
     overflow: hidden;
+    margin-left: 50%;  /* Shift the card to the left */
+    transform: translateX(-50%);  /* Center the card */
 }
 
 .card-header {
@@ -145,23 +160,25 @@ footer p {
     border-top-right-radius: 15px;
     margin: 0; /* Remove margin */
 }
-
 .card-body {
-    padding: 20px;
+    padding: 20px;  /* Adjust the padding to avoid too much inward push */
     padding-top: 10px;
     padding-bottom: 10px;
     margin: 0;
+    text-align: left;  /* Ensure text is aligned to the left */
 }
-
 .form-group textarea {
-    width: 100%;
+    width: 80%;  /* Adjust the width as needed */
+    max-width: 400px;  /* Set a maximum width if needed */
     padding: 15px;
     border: 1px solid #38444d;
     border-radius: 5px;
     resize: none;
-    min-height: 100px;
+    min-height: 30px;  /* Adjust the minimum height as needed */
     background-color: #243447;
     color: #ffffff;
+    margin-left: 0;  /* Ensure it's aligned to the left */
+    display: block;  /* Ensure it's a block element */
 }
 
 .btn {
@@ -222,7 +239,7 @@ footer p {
 
 .auth-container .form-check {
     display: flex;
-    align-items: center;
+    align-items: left;
     gap: 5px;
     justify-content: flex-start;
     margin-top: 15px; 
@@ -248,7 +265,7 @@ footer p {
 }
 
 .auth-container .form-check-label {
-    margin: 0; /* Reset margin */
+    margin: 0; 
     font-size: 0.9rem; 
 }
 
@@ -275,6 +292,7 @@ footer p {
     font-size: 0.9rem;
     height: auto;
 }
+
 
 .auth-container .form-group input:focus {
     border-color: #1da1f2;
@@ -328,19 +346,6 @@ footer p {
     align-items: center; 
     justify-content: center; 
 }
-
-/* Tweet Form Container */
-.tweet-form-container {
-    width: 90%; 
-    max-width: 800px; 
-    padding: 20px; 
-    margin: 20px auto; 
-    background-color: #243447;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-}
 /* Tweet Form Header */
 .tweet-form-header {
     background-color: #1da1f2;
@@ -351,55 +356,169 @@ footer p {
     border-top-right-radius: 10px;
 }
 
-/* Tweet Form Textarea */
-.tweet-form-textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #38444d;
-    border-radius: 5px;
-    resize: none;
-    min-height: 100px; 
-    background-color: #243447;
-    color: #ffffff;
-}
-
-/* Tweet Form Button */
-.tweet-form-button {
-    background-color: #1da1f2;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    display: block;
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .tweet-form-button:hover {
     background-color: #1a91da;
 }
+.tweet-display-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: #192734;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #ffffff;
+}
 
-.tweet-form-container {
-    width: 95%; 
-    max-width: 1000px; 
-    padding: 20px; 
-    margin: 20px auto; 
+.tweet-display-body {
+    padding: 10px;
+    margin: 0;
+}
+
+.tweet-user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    margin-bottom: 10px;
+}
+.tweet-display-title {
+    font-size: 1.0rem;  
+    font-weight: bold;
+    color: #1da1f2; 
+    margin-right: 10px; 
+    display: inline-block; 
+}
+
+.tweet-display-timestamp {
+    font-size: 0.75rem;  
+    color: #8899a6;
+}
+hr.tweet-divider {
+    border: 0;
+    border-top: 1px solid #38444d;  
+    margin: 10px 0;  
+}
+
+.tweet-display-content {
     background-color: #243447;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-top: 10px;
+    overflow: hidden; 
+}
+.tweet-display-text {
+    font-size: 1rem;
+    margin: 0;
+    word-wrap: break-word;  
+    overflow-wrap: break-word; 
+}
+.image-upload-label {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1da1f2;
+    font-size: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.image-upload-label:hover {
+    color: #1a91da;
+}
+
+/* Hide the default file input */
+input[type="file"].d-none {
+    display: none !important;
+}
+
+.tweet-display-content img {
+    max-width: 100%; 
+    height: auto;    
+    float: left;     
+    margin-right: 15px; 
+    margin-top: 10px; 
+    border-radius: 5px; 
+    object-fit: cover;   
+}
+/* Profile Page Styling */
+
+.profile-background {
     display: flex;
     flex-direction: column;
-}
-/* Tweet Display Card */
-.tweet-display-card {
-    background-color: #192734;
-    color: #ffffff;
-    padding: 40px 20px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
     width: 100%; 
+    max-width: 1400px; 
+    padding: 20px; 
+    background: rgba(20, 30, 48, 0.8); 
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.profile-header {
+    background-color: #1da1f2;
+    color: #fff;
+    padding: 15px; 
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: -15px;
+}
+
+.profile-body {
+    width: 95%;
+    padding: 30px; 
+}
+
+.profile-form-group {
+    margin-bottom: 18px; 
+}
+
+.profile-form-label {
+    font-size: 1rem; 
+    color: #ffffff; 
+}
+
+.profile-form-control {
+    background-color: #243447;
+    color: #ffffff;
+    border: 1px solid #38444d;
+    border-radius: 5px;
+    padding: 10px; 
+    font-size: 1rem; 
+    width: 100%;
+}
+
+.profile-form-control-file {
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.profile-btn-primary {
+    background-color: #1da1f2;
+    border-color: #1da1f2;
+    color: #ffffff;
+    padding: 12px 24px; 
+    border-radius: 20px;
+    font-size: 0.9rem; 
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.profile-btn-primary:hover {
+    background-color: #1a91da;
+    border-color: #1a91da;
+    transform: scale(1.05);
+}
+
+.profile-img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

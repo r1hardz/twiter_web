@@ -1,3 +1,4 @@
+<!-- File: resources/views/auth/login.blade.php -->
 @extends('layouts.app')
 
 @section('content')
@@ -23,11 +24,11 @@
                 </span>
             @enderror
         </div>
-        <div class="form-group">
+        <div class="form-group1">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember">
                 <label class="form-check-label" for="remember">
-                    Remember Me
+                    {{ __('Remember Me') }}
                 </label>
             </div>
         </div>
@@ -35,7 +36,7 @@
             {{ __('Login') }}
         </button>
         @if (Route::has('password.request'))
-            <a class="btn btn-link" href="{{ route('password.request') }}">
+            <a class="forgot-password-link" href="{{ route('password.request') }}">
                 {{ __('Forgot Your Password?') }}
             </a>
         @endif

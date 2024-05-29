@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nickname',
+        'profile_picture',
     ];
 
     /**
@@ -42,4 +44,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Get the tweets for the user.
+     */
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
 }

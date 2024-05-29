@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TweetController; // Import the TweetController
+use App\Http\Controllers\TweetController;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,5 +25,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Add the routes for TweetController
-Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
-Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store')->middleware('auth');
+Route::get('/tweets', [App\Http\Controllers\TweetController::class, 'index'])->name('tweets.index');
+Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
