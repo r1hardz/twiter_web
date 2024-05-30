@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class AddNicknameAndProfilePictureToUsersTable extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
@@ -14,6 +17,9 @@ class AddNicknameAndProfilePictureToUsersTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {

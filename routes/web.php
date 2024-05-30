@@ -29,3 +29,4 @@ Route::get('/tweets', [App\Http\Controllers\TweetController::class, 'index'])->n
 Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::post('/tweets', [TweetController::class, 'store'])->middleware('auth')->name('tweets.store');

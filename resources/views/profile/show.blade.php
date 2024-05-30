@@ -8,7 +8,7 @@
         <div class="profile-body">
             @if(session('success'))
                 <div class="alert alert-success">
-                    {{ session('success') }}
+                    Profile updated successfully.
                 </div>
             @endif
 
@@ -26,13 +26,15 @@
 
                 <div class="profile-form-group mt-3">
                     <label for="profile_picture" class="profile-form-label">Profile Picture</label>
-                    <input type="file" class="profile-form-control-file" id="profile_picture" name="profile_picture" accept="image/*">
-                    @if($user->profile_picture)
-                        <img src="{{ Storage::url($user->profile_picture) }}" alt="Profile Picture" class="profile-img-fluid mt-3">
-                    @endif
+                    <div class="profile-picture-wrapper">
+                        <input type="file" class="profile-form-control-file" id="profile_picture" name="profile_picture" accept="image/*">
+                        @if($user->profile_picture)
+                            <img src="{{ Storage::url($user->profile_picture) }}" alt="Profile Picture" class="profile-img-small">
+                        @endif
+                    </div>
                 </div>
 
-                <button type="submit" class="profile-btn-primary mt-3">Update Profile</button>
+                <button type="submit" class="profile-btn-primary">Update Profile</button>
             </form>
         </div>
     </div>

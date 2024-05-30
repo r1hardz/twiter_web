@@ -33,6 +33,16 @@
                         <div class="logo">
                             <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="img-fluid">
                         </div>
+
+                        @auth
+                        <div class="user-info mt-3 text-center">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <p class="user-name mr-2">{{ auth()->user()->name }}</p>
+                                <img src="{{ Storage::url(auth()->user()->profile_picture) }}" alt="Profile Picture" class="profile-picture img-fluid rounded-circle">
+                            </div>
+                        </div>
+                        @endauth
+
                         <ul class="nav flex-column mt-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/tweets') }}">Tweets</a>
